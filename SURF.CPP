@@ -1071,7 +1071,7 @@ void B_Spline_Surface(void)
             setcolor(YELLOW);
             Draw_Point(Points[i][j]);
             setcolor(LIGHTMAGENTA);
-            if(i>0) Draw_Line(Points[i-l][j],Points[i][j]);
+            if(i>0) Draw_Line(Points[i-1][j],Points[i][j]);
             if(j>0) Draw_Line(Points[i][j-1],Points[i][j]);
         }
     /* Draw surface */
@@ -1651,11 +1651,11 @@ FilesMenu:
         gotoxy(14,13);
         cprintf("Writing data to %s",File);
         gotoxy(14,15);
-	cprintf("ษออออออออออออออออออออออออออออออออออออออออออออออออออป");
+	cprintf("รรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรยป");
 	gotoxy(14,16);
-	cprintf("บ                                                  บ");
+	cprintf("ยบ                                                  ยบ");
 	gotoxy(14,17);
-	cprintf("ศออออออออออออออออออออออออออออออออออออออออออออออออออผ");
+	cprintf("รรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรรยผ");
 	fp=fopen(File,"wt");
 	if(Type_Curve%2==0) B_Spline_NC();
 	else Bezier_NC();
@@ -1936,7 +1936,7 @@ void Bezier_NC(void)
             {
                 Percent=floor(u*v*50);
 		gotoxy(15+Percent,16);
-		cprintf("Û");
+		cprintf("ร");
 		/* Calculate real coordinates of point */
 		P3D.x=P3D.y=P3D.z=0;
 		for(i=0; i<=np; i++)
@@ -1986,7 +1986,7 @@ void Bezier_NC(void)
 	    {
 		Percent=floor(u*(1-v)*50);
 		gotoxy(15+Percent,16);
-		cprintf("Û");
+		cprintf("ร");
 		/* Calculate real coordinates of point */
 		P3D.x=P3D.y=P3D.z=0;
 		for(i=0; i<=np; i++)
@@ -2071,7 +2071,7 @@ void B_Spline_NC(void)
 	    {
 		Percent=floor(u*v*50/mpk/npl);
 		gotoxy(15+Percent,16);
-		cprintf("Û");
+		cprintf("ร");
 		/* Calculate real coordinates of point */
 		P3D.x=P3D.y=P3D.z=0;
 		for(i=0; i<=np; i++)
@@ -2125,7 +2125,7 @@ void B_Spline_NC(void)
 	    {
 		Percent=floor(u*(mpk-v)*50/mpk/npl);
 		gotoxy(15+Percent,16);
-		cprintf("Û");
+		cprintf("ร");
 		/* Calculate real coordinates of point */
 		P3D.x=P3D.y=P3D.z=0;
 		for(i=0; i<=np; i++)
