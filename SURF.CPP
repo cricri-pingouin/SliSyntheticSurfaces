@@ -728,7 +728,7 @@ Again:
 	    if(kbhit()) Key=getch();
                 }
             while(Key<49||Key>50&&Button()==0);
-        if(Key==49||Button()==l) Type_Curve=5;
+        if(Key==49||Button()==1) Type_Curve=5;
         if(Key==50||Button()==2) Type_Curve=6;
         np++;
         mp++;
@@ -1923,7 +1923,7 @@ void Bezier_NC(void)
     /* Write CNC data to file */
     Direction=1;
     textcolor(WHITE);
-    for(u=0; u<=l; u+=Delta)
+    for(u=0; u<=1; u+=Delta)
     {
         gotoxy(38,18);
         Percent=floor(100*u);
