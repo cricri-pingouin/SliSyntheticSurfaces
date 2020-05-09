@@ -1,6 +1,6 @@
 /* Final year project,BEng Mechanical Engineering (Hons) */
 /* Creation and machining of doubly curved surfaces      */
-/* (c) xxx, 1999; Supervisor: yyy                        */
+/* By xxx, 199x; Supervisor: yyy                        */
 #include <conio.h>    /* for screen input/output   */
 #include <stdio.h>    /* for screen input/output   */
 #include <stdlib.h>   /* basic library             */
