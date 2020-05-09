@@ -1651,11 +1651,11 @@ FilesMenu:
         gotoxy(14,13);
         cprintf("Writing data to %s",File);
         gotoxy(14,15);
-	cprintf("ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»");
+	cprintf("====================================================");
 	gotoxy(14,16);
-	cprintf("º                                                  º");
+	cprintf("=                                                  =");
 	gotoxy(14,17);
-	cprintf("ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼");
+	cprintf("====================================================");
 	fp=fopen(File,"wt");
 	if(Type_Curve%2==0) B_Spline_NC();
 	else Bezier_NC();
@@ -2071,7 +2071,7 @@ void B_Spline_NC(void)
 	    {
 		Percent=floor(u*v*50/mpk/npl);
 		gotoxy(15+Percent,16);
-		cprintf("Û");
+		cprintf("O");  /* That's supposed to be a filled box character */
 		/* Calculate real coordinates of point */
 		P3D.x=P3D.y=P3D.z=0;
 		for(i=0; i<=np; i++)
@@ -2125,7 +2125,7 @@ void B_Spline_NC(void)
 	    {
 		Percent=floor(u*(mpk-v)*50/mpk/npl);
 		gotoxy(15+Percent,16);
-		cprintf("Û");
+		cprintf("O"); /* That's supposed to be a filled box character */
 		/* Calculate real coordinates of point */
 		P3D.x=P3D.y=P3D.z=0;
 		for(i=0; i<=np; i++)
