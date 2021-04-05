@@ -96,9 +96,9 @@ int Get_Mouse_Y(void);
 char Button(void);
 void Set_Mouse_Pos(int x,int y);
 void Set_Cursor_Hand(void);
-/* DISPLAY 0F NUMERIC VALUES IN GRAPHIC MODE */
+/* DISPLAY OF NUMERIC VALUES IN GRAPHIC MODE */
 int gprintf(int *xloc,int *yloc,char *fmt,...);
-/* TOOLPATH SIMULATION 0N SCREEN */
+/* TOOLPATH SIMULATION ON SCREEN */
 void Bezier_Sim(void);
 void B_Spline_Sim(void);
 /* CNC FILES / SAVE PARAMETERS / SAVE SURFACE DATA */
@@ -390,13 +390,13 @@ void Check_System(void)
     /* Checking DMA */
     gotoxy(13,18);
     cprintf("Direct Memory Access............. ");
-    ret=biosequip();
+    //ret=biosequip();
     if(ret&0x0100) cprintf("No");
     else cprintf("Yes");
     /* Checking boot */
     gotoxy(13,20);
     cprintf("Boot from disk................... ");
-    ret=biosequip();
+    //ret=biosequip();
     if(ret&0x0001) cprintf("Yes");
     else cprintf("No");
     /* End screen */
@@ -1651,11 +1651,11 @@ FilesMenu:
         gotoxy(14,13);
         cprintf("Writing data to %s",File);
         gotoxy(14,15);
-	cprintf("====================================================");
+	cprintf("╔══════════════════════════════════════════════════╗");
 	gotoxy(14,16);
-	cprintf("=                                                  =");
+	cprintf("║                                                  ║");
 	gotoxy(14,17);
-	cprintf("====================================================");
+	cprintf("╚══════════════════════════════════════════════════╝");
 	fp=fopen(File,"wt");
 	if(Type_Curve%2==0) B_Spline_NC();
 	else Bezier_NC();
@@ -1986,7 +1986,7 @@ void Bezier_NC(void)
 	    {
 		Percent=floor(u*(1-v)*50);
 		gotoxy(15+Percent,16);
-		cprintf("Û");
+		cprintf("█"); /* That's supposed to be a filled box character Alt + 219 for progress bar */
 		/* Calculate real coordinates of point */
 		P3D.x=P3D.y=P3D.z=0;
 		for(i=0; i<=np; i++)
@@ -2071,7 +2071,7 @@ void B_Spline_NC(void)
 	    {
 		Percent=floor(u*v*50/mpk/npl);
 		gotoxy(15+Percent,16);
-		cprintf("O");  /* That's supposed to be a filled box character */
+		cprintf("█");  /* That's supposed to be a filled box character Alt + 219 for progress bar */
 		/* Calculate real coordinates of point */
 		P3D.x=P3D.y=P3D.z=0;
 		for(i=0; i<=np; i++)
@@ -2125,7 +2125,7 @@ void B_Spline_NC(void)
 	    {
 		Percent=floor(u*(mpk-v)*50/mpk/npl);
 		gotoxy(15+Percent,16);
-		cprintf("O"); /* That's supposed to be a filled box character */
+		cprintf("█"); /* That's supposed to be a filled box character Alt + 219 for progress bar */
 		/* Calculate real coordinates of point */
 		P3D.x=P3D.y=P3D.z=0;
 		for(i=0; i<=np; i++)
